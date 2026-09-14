@@ -1,0 +1,46 @@
+schema_version: 1
+
+context:
+  name: bayesfilter
+  version: "0.1.0"
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://files.pythonhosted.org/packages/source/${{ name[0] }}/${{ name }}/bayesfilter-${{ version }}.tar.gz
+  sha256: 2fcad9220aaea883879331b3df48ae30aad6f0a825e468aecca3c99bd8e54686
+
+build:
+  number: 0
+  noarch: python
+  script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+
+requirements:
+  host:
+    - python ${{ python_min }}.*
+    - pip
+    - setuptools
+  run:
+    - python >=${{ python_min }}
+    - numpy
+
+tests:
+  - python:
+      imports:
+        - bayesfilter
+      pip_check: true
+      python_version:
+        - ${{ python_min }}.*
+        - "*"
+
+about:
+  summary: A pure Python/NumPy library for Bayesian filtering and smoothing
+  license: MIT
+  license_file: LICENSE
+  homepage: https://github.com/hugohadfield/bayesfilter
+
+extra:
+  recipe-maintainers:
+    - thewchan
