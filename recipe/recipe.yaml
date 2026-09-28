@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: bayesfilter
-  version: "0.1.0"
+  version: "0.2.0"
 
 package:
   name: ${{ name|lower }}
@@ -10,7 +10,7 @@ package:
 
 source:
   url: https://files.pythonhosted.org/packages/source/${{ name[0] }}/${{ name }}/bayesfilter-${{ version }}.tar.gz
-  sha256: 2fcad9220aaea883879331b3df48ae30aad6f0a825e468aecca3c99bd8e54686
+  sha256: f852996421728aad38085a305e0a76bc34efdfe5c2faad1fd59882dbcab3020c
 
 build:
   number: 0
