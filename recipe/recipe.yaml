@@ -21,10 +21,11 @@ requirements:
   host:
     - python ${{ python_min }}.*
     - pip
-    - setuptools
+    - setuptools >=61
+    - wheel
   run:
     - python >=${{ python_min }}
-    - numpy
+    - numpy >=1.21.3
 
 tests:
   - python:
